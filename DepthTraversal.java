@@ -1,9 +1,24 @@
-import java.util.Vector;
-import java.util.Queue;
 
-public class DepthTraversal 
+
+import java.util.Stack;
+
+import ADTPackage.LinkedQueue;
+import ADTPackage.LinkedStack;
+import ADTPackage.LinkedDictionary;
+import ADTPackage.QueueInterface;
+import ADTPackage.StackInterface;
+import GraphPackage.VertexInterface;
+import GraphPackage.Vertex;
+
+import java.util.Queue;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+
+public class DepthTraversal<T> 
 {
-    
+    private int edgeCount=0;
+    private T vertices;
     public QueueInterface<T> getDepthFirstTraversal(T origin)
     {
         resetVertices();
@@ -12,7 +27,7 @@ public class DepthTraversal
 
         VertexInterface<T> originVertex = vertices.getValue(origin);
         originVertex.visit();
-        traversalOrder.enqueue(origin)
+        traversalOrder.enqueue(origin);
         vertexStack.push(originVertex);
 
         while(!vertexStack.isEmpty())
@@ -35,6 +50,49 @@ public class DepthTraversal
         return traversalOrder;
 
     }
+    protected void resetVertices()
+    {
+        Iterator<VertexInterface<T>> vertexIterator = vertices.getValueIterator();
+        while (vertexIterator.hasNext())
+            {
+                  VertexInterface<T> nextVertex = vertexIterator.next();
+                  nextVertex.unvisit();
+                  nextVertex.setCost(0);
+                  nextVertex.setPredecessor(null);
+            } // end while
+    } // end resetVertices
+    public boolean isEmpty()
+        {
+            return vertices.isEmpty();
+        } // end isEmpty
+
+    public void clear()
+        {
+          vertices.clear();
+          edgeCount = 0;
+        } // end clear
+
+    public int getNumberOfVertices()
+        {
+            return vertices.getSize();
+        } // end getNumberOfVertices
+
+    public int getNumberOfEdges()
+     {
+        return edgeCount;
+     } // end getNumberOfEdges
+     
+        public boolean addVertex(T vertexLabel)
+        {
+           VertexInterface<T> addOutcome = vertices.add(vertexLabel, new Vertex<>(vertexLabel));
+           return addOutcome == null; // Was addition to dictionary successful?
+        } // end addVertex
+        
+
+
+
+
     
     
 }
+
