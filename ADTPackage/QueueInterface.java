@@ -28,5 +28,8 @@ public boolean isEmpty();
 
 /** Removes all entries from this queue. */
 public void clear();
+
+//Prints Queue
+public void printQueue();
 } // end QueueInterface
 
