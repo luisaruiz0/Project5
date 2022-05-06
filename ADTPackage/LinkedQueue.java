@@ -68,7 +68,14 @@ private Node lastNode;  // References node at back of queue
 	   firstNode = null;
 	   lastNode = null;
 	} // end clear
-
+	
+	public void printQueue() {
+		Node n = firstNode;
+	    while (n != null) {
+	        System.out.println(n.getData());
+	        n = n.next;
+	    }
+	} // end printQueue
 	
 
 	private class Node
