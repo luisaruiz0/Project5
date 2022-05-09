@@ -34,7 +34,7 @@ public class DirectedGraphTest {
 		BreadthTra.addEdge("H", "I");
 		BreadthTra.addEdge("C", "B");
 		BreadthTra.addEdge("I", "F");
-        BreadthTra.getBreadthFirstTraversal("A");
+        
         QueueInterface<String> bQueue =  BreadthTra.getBreadthFirstTraversal("A");
         assertEquals("ABDEGFHCI", bQueue.returnQueue());
     }
@@ -69,7 +69,7 @@ public class DirectedGraphTest {
 		DepthTra.addEdge("C", "B");
 		DepthTra.addEdge("I", "F");
 		
-		DepthTra.getDepthFirstTraversal("A");
+		
         QueueInterface<String> dQueue =  DepthTra.getDepthFirstTraversal("A");
         assertEquals("ABEFCHIDG", dQueue.returnQueue());
     }
