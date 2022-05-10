@@ -115,5 +115,17 @@ private Node lastNode;  // References node at back of queue
 			next = nextNode;
 		} // end setNextNode
 	} // end Node
+	
+	//returns the string queue
+	public String returnQueue() { 
+        String returnQueue = "";
+        Node n = firstNode;
+        while (n != null) {
+            System.out.println(n.getData());
+            returnQueue += n.getData();//?
+            n = n.next;
+        }
+        return returnQueue;
+    }
 
 } // end LinkedQueue
