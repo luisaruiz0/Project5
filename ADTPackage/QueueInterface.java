@@ -31,5 +31,8 @@ public void clear();
 
 //Prints Queue
 public void printQueue();
+
+//returns Queue
+public String returnQueue();
 } // end QueueInterface
 
